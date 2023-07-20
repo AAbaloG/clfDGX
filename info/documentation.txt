@@ -1,0 +1,64 @@
+version_0:
+- modelo: resnet18(pretrained=True)
+- num_epocas = 3000 (?)
+- batch_size = 8
+- dimensiones imágenes de entrada a la red: 300 x 225 x 3
+- data augmentation aplicado: transforms.Compose([transforms.RandomHorizontalFlip(0.5),
+                                  transforms.RandomRotation(30),
+                                  transforms.RandomCrop((int(0.8*300), int(0.8*225))),
+                                  ])
+- num_workers: 0
+- última capa: self.model.fc = torch.nn.Sequential(torch.nn.Linear(num_fts, 256),
+                                  torch.nn.Linear(256, num_classes))
+- lr inicial: 1e-3
+- lr adaptativo: SÍ
+- step_size = int(78 * 1000 / 4)
+- gamma = 0.33
+- número de imágenes de cada clase en validación: 20
+- clases balanceadas: NO
+- pérdida balanceada: NO
+
+
+
+version_1:
+- modelo: resnet50(pretrained=True)
+- num_epocas = 3000 (?)
+- batch_size = 8
+- dimensiones imágenes de entrada a la red: 300 x 225 x 3
+- data augmentation aplicado: transforms.Compose([transforms.RandomHorizontalFlip(0.5),
+                                  transforms.RandomRotation(30),
+                                  transforms.RandomCrop((int(0.8*300), int(0.8*225))),
+                                  ])
+- num_workers: 0
+- última capa: self.model.fc = torch.nn.Sequential(torch.nn.Linear(num_fts, 256),
+                                  torch.nn.Linear(256, num_classes))
+- lr inicial: 1e-3
+- lr adaptativo: SÍ
+- step_size = int(78 * 1000 / 2)
+- gamma = 0.33
+- número de imágenes de cada clase en validación: 20
+- clases balanceadas: NO
+- pérdida balanceada: NO
+
+
+
+version_2:
+- modelo: resnet50(pretrained=True)
+- num_epocas = 3000 (?)
+- batch_size = 8
+- dimensiones imágenes de entrada a la red: 300 x 225 x 3
+- data augmentation aplicado: transforms.Compose([transforms.RandomHorizontalFlip(0.5),
+                                  transforms.RandomRotation(30),
+                                  transforms.RandomCrop((int(0.8*300), int(0.8*225))),
+                                  ])
+- num_workers: 0
+- última capa: self.model.fc = torch.nn.Sequential(torch.nn.Linear(num_fts, 256),
+                                  torch.nn.Linear(256, num_classes))
+- lr inicial: 1e-3
+- lr adaptativo: SÍ
+- step_size = int(78 * 1000 / 2)
+- gamma = 0.33
+- número de imágenes de cada clase en validación: 20
+- clases balanceadas: NO
+- pérdida balanceada: SI
+
